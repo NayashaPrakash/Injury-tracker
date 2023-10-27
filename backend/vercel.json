@@ -1,9 +1,9 @@
-  {
+{
   "version": 2,
   "routes": [
     {
-      "src": "/api/login", 
-      "methods": ["OPTIONS", "POST"], 
+      "src": "/api/login",
+      "methods": ["OPTIONS", "POST"],
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -11,8 +11,8 @@
       }
     },
     {
-      "src": "/api/register", 
-      "methods": ["OPTIONS", "POST"], 
+      "src": "/api/register",
+      "methods": ["OPTIONS", "POST"],
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -20,17 +20,15 @@
       }
     },
     {
-      "src": "/api/myForms", 
-      "methods": ["OPTIONS", "GET"], 
+      "src": "/api/myForms",
+      "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
     }
-  ]
-
-
+  ],
   "env": {
     "MONGODB_URI": "mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority"
   }
