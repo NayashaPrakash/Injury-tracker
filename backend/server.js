@@ -23,7 +23,8 @@ app.use(
   cors({
     origin: [
       'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app/',
-      'https://injury-tracker-frontend.vercel.app/'
+      'https://injury-tracker-frontend.vercel.app/',
+      'https://injury-tracker.vercel.app/'
     ],
     methods: ['GET', 'POST'],
     credentials: true 
