@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/login', { email, password },  { withCredentials: true });
       const { user, token } = response.data;
-      console.log('[[[[[[[[[[[[['+ responsse.data);
+      
 
       dispatch({ type: 'LOGIN', payload: { user, accessToken: token } });
     } catch (error) {
