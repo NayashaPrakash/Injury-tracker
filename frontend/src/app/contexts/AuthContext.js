@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://injury-tracker-backend.vercel.app/api/login', { email, password });
+      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/login', { email, password });
       const { user, token } = response.data;
 
       dispatch({ type: 'LOGIN', payload: { user, accessToken: token } });
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, username, password) => {
     try {
-      const response = await axios.post('https://injury-tracker-backend.vercel.app/api/register', {
+      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/register', {
         email,
         username,
         password
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
 
   const getForms = async () => {
     try {
-      const response = await axios.get('https://injury-tracker-backend.vercel.app/api/myForms', {
+      const response = await axios.get('https://injury-tracker-backend-blond.vercel.app/api/myForms', {
         withCredentials: true
       });
       const forms = response.data;
