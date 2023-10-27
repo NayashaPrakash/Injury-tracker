@@ -5,9 +5,10 @@
       "src": "/(.*)",
       "dest": "server.js",
        "headers": {
-        "Access-Control-Allow-Origin": "https://injury-tracker.vercel.app",
-          "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+         "Access-Control-Allow-Origin": "https://injury-tracker.vercel.app",
+         "Access-Control-Allow-Credentials": "true",
+         "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
     }
   ],
