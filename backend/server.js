@@ -21,11 +21,15 @@ mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: 'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app/',
-    method: ['GET', 'POST'],
-    credentials: true // Enable credentials (cookies)
+    origin: [
+      'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app/',
+      'https://injury-tracker-frontend.vercel.app/'
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true 
   })
 );
+
 
 const userSchema = new mongoose.Schema({
   email: String,
