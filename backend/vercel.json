@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "src": "/(.*)",
-      "dest": "/", 
+      "dest": "/"
     }
   ],
   "headers": [
@@ -11,7 +11,8 @@
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
-    },
+    }
+  ],
   "env": {
     "MONGODB_URI": "mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority"
   }
