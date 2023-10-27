@@ -21,7 +21,8 @@ mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: 'http://localhost:3000', // Replace with the actual origin of your client app
+    origin: 'https://injury-tracker-frontend.vercel.app/',
+    method: ['GET', 'POST'],
     credentials: true // Enable credentials (cookies)
   })
 );
