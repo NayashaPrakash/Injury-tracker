@@ -19,17 +19,19 @@ const config = require('./config');
 mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority');
 
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: [
-      'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app/',
-      'https://injury-tracker-frontend.vercel.app/',
-      'https://injury-tracker.vercel.app/'
-    ],
-    methods: ['GET', 'POST'],
-    credentials: true 
-  })
-);
+// app.use(
+//   cors({
+//     origin: [
+//       'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app/',
+//       'https://injury-tracker-frontend.vercel.app/',
+//       'https://injury-tracker.vercel.app/'
+//     ],
+//     methods: ['GET', 'POST'],
+//     credentials: true 
+//   })
+// );
+
+app.use(cors());
 
 
 const userSchema = new mongoose.Schema({
