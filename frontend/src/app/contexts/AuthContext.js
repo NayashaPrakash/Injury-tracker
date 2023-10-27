@@ -3,6 +3,8 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { InjLoading } from 'app/components';
 
+axios.defaults.withCredentials = true;
+
 const initialState = {
   user: null,
   isInitialised: false,
