@@ -6,7 +6,7 @@ export const saveFormDataToMongoDB = async (formData) => {
   };
   console.log(formData);
   try {
-    const response = await fetch('https://injurytracker.vercel.app/api/saveFormData', {
+    const response = await fetch('https://injury-tracker-backend.vercel.app/api/saveFormData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
