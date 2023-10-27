@@ -1,11 +1,3 @@
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
   {
   "version": 2,
   "routes": [
@@ -37,7 +29,7 @@
       }
     }
   ]
-}
+
 
   "env": {
     "MONGODB_URI": "mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority"
