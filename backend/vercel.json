@@ -1,34 +1,14 @@
 {
   "version": 2,
-  "routes": [
+   "routes": [
     {
-      "src": "/api/login",
-      "methods": ["OPTIONS", "POST"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
-      }
-    },
-    {
-      "src": "/api/register",
-      "methods": ["OPTIONS", "POST"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
-      }
-    },
-    {
-      "src": "/api/myForms",
-      "methods": ["OPTIONS", "GET"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+      "src": "/(.*)",
+      "dest": "server.js",
+       "headers": {
+         "Access-Control-Allow-Origin": "https://injury-tracker.vercel.app",
+         "Access-Control-Allow-Credentials": "true",
+         "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }
     }
   ],
@@ -36,4 +16,5 @@
     "MONGODB_URI": "mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority"
   }
 }
+
 
