@@ -16,7 +16,24 @@ const config = require('./config');
 //   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 
-mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority');
+// mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority');
+
+
+mongoose
+  .connect(
+     'mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    console.log("Database Connection Done");
+  })
+  .catch(() => {
+    console.log(error);
+    console.log("Error in establishing Database");
+  });
 
 app.use(bodyParser.json());
 app.use(
