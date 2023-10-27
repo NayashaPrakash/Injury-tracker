@@ -3,7 +3,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { InjLoading } from 'app/components';
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 const initialState = {
   user: null,
@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/login', { email, password });
+      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/login', { email, password },  { withCredentials: true });
       const { user, token } = response.data;
 
       dispatch({ type: 'LOGIN', payload: { user, accessToken: token } });
@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
         email,
         username,
         password
-      });
+      },  { withCredentials: true });
       const { user, token } = response.data;
 
       dispatch({ type: 'REGISTER', payload: { user, accessToken: token } });
