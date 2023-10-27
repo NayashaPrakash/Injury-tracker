@@ -26,7 +26,7 @@ app.use(
       'https://injury-tracker-frontend.vercel.app/',
       'https://injury-tracker.vercel.app/'
     ],
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     credentials: true 
   })
 );
