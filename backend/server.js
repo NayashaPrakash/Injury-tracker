@@ -7,7 +7,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const config = require('./config');
+// const config = require('./config');
 
 // MongoDB connection
 // mongoose
@@ -17,6 +17,10 @@ const config = require('./config');
 
 
 // mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority');
+
+const crypto = require('crypto');
+const secretKey = crypto.randomBytes(32).toString('base64');
+console.log(secretKey);
 
 
 mongoose
@@ -105,7 +109,7 @@ app.post('/api/register', async (req, res) => {
 
     await newUser.save();
 
-    const token = jwt.sign({ user: newUser._id }, config.jwtSecretKey);
+    const token = jwt.sign({ user: newUser._id }, secretKey);
 
     res.status(201).json({ token });
   } catch (error) {
@@ -128,7 +132,7 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ message: 'Incorrect password' });
     }
 
-    const token = jwt.sign({ user: user._id }, config.jwtSecretKey);
+    const token = jwt.sign({ user: user._id }, secretKey);
 
     // Successful login
     res.status(200).json({ token, user });
@@ -147,7 +151,7 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    const decodedToken = jwt.verify(token, config.jwtSecretKey);
+    const decodedToken = jwt.verify(token, secretKey);
     const { exp } = decodedToken;
     const currentTime = Date.now() / 1000;
 
