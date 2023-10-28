@@ -1,15 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from 'app/contexts/AuthContext';
 
-const formatDateTime = (dateTimeString) => {
-  const date = new Date(dateTimeString);
-  const formattedDate = date.toISOString().split('T')[0];
-  const formattedTime = date.toTimeString().split(' ')[0];
-  return { formattedDate, formattedTime };
-};
-
 const AppProgress = () => {
-  const { forms, getForms, deleteForm } = useContext(AuthContext);
+  const { forms, getForms } = useContext(AuthContext);
   const [formsArray, setFormsArray] = useState([]);
 
   useEffect(() => {
