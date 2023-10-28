@@ -3,7 +3,7 @@
    "routes": [
     {
       "src": "/(.*)",
-      "dest": "server.js",
+      "dest": "index.js",
        "headers": {
          "Access-Control-Allow-Origin": "https://injury-tracker.vercel.app",
          "Access-Control-Allow-Credentials": "true",
