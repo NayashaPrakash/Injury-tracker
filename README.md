@@ -52,17 +52,23 @@ The backend is developed using Node.js framework along with MongoDB for database
 
 1. Body-map: 
 
-It includes automatic location detection feature done using image mapping.
+   It includes automatic location detection feature done using image mapping.
 
 2. Analytics Dashboard:
-The charts are made using Chart.JS based on the number of reports reported on a particular date by the user.
+   
+   The charts are made using Chart.JS based on the number of reports reported on a particular date by the user.
 
-3. User Registration and Authentication
-Users can register for an account using a unique username and password. Authentication is implemented using JWT for secure access. Registered users can log in and log out of their accounts. User history, including reported injuries, is stored and accessible upon login.
+4. User Registration and Authentication:
 
-4. Injury Reporting
-Users can create a new injury report that includes various fields. They can select different areas of injury on a body map image and can provide details of injuries for each labeled area. The system automatically identifies and labels the selected areas (e.g., "left hand," "left foot").
+   Users can register for an account using a unique username and password. Authentication is implemented using JWT for secure access. Registered users can log in and log out of their    
+   accounts. User history, including reported injuries, is stored and accessible upon login.
 
-5. List of Reports
-Users can view history of all reported injuries. The list includes the name of the reporter, date & time of injury, and the date of the report.
+5. Injury Reporting:
+   
+   Users can create a new injury report that includes various fields. They can select different areas of injury on a body map image and can provide details of injuries for each labeled 
+   area. The system automatically identifies and labels the selected areas (e.g., "left hand," "left foot").
+
+6. List of Reports:
+   
+   Users can view history of all reported injuries. The list includes the name of the reporter, date & time of injury, and the date of the report.
 
