@@ -9,7 +9,7 @@
          "Access-Control-Allow-Origin": "https://injury-tracker.vercel.app",
          "Access-Control-Allow-Methods": "POST, OPTIONS, GET, PUT, PATCH",
          "Access-Control-Allow-Credentials": "true",
-         "Access-Control-Allow-Headers": "Content-Type, Authorization"
+         "Access-Control-Allow-Headers": " Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization"
       }
     }
   ],
