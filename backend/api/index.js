@@ -133,11 +133,7 @@ app.post('/api/login', async (req, res) => {
     const token = jwt.sign({ user: user._id }, secretKey);
 
     // Successful login
-    res.status(200).set('Access-Control-Allow-Origin', 'https://injury-tracker.vercel.app')
-       .set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
-       .set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-       .set('Access-Control-Allow-Credentials', 'true')
-       .json({ token, user });
+    res.status(200).json({ token, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
