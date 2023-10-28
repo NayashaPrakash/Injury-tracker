@@ -15,28 +15,26 @@ const app = express();
 //   .then(() => console.log('Connected to MongoDB'))
 //   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
-
 // mongoose.connect('mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/?retryWrites=true&w=majority');
 
 const crypto = require('crypto');
 const secretKey = crypto.randomBytes(32).toString('base64');
 console.log(secretKey);
 
-
 mongoose
   .connect(
-     'mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/injury-tracker-app?retryWrites=true&w=majority',
+    'mongodb+srv://injury-tracker-user:injury-tracker-user@cluster0.nf0k5fr.mongodb.net/injury-tracker-app?retryWrites=true&w=majority',
     {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+      useUnifiedTopology: true
     }
   )
   .then(() => {
-    console.log("Database Connection Done");
+    console.log('Database Connection Done');
   })
   .catch(() => {
     console.log(error);
-    console.log("Error in establishing Database");
+    console.log('Error in establishing Database');
   });
 
 app.use(bodyParser.json());
@@ -45,15 +43,15 @@ app.use(
     origin: [
       'https://injury-tracker-frontend-549r1hkzo-nayashas-projects.vercel.app',
       'https://injury-tracker-frontend.vercel.app',
-      'https://injury-tracker.vercel.app'
+      'https://injury-tracker.vercel.app',
+      'http://localhost:3000'
     ],
-    methods: ['GET', 'POST', 'OPTIONS'],
-    credentials: true 
+    methods: ['GET', 'POST', 'OPTIONS', 'DELETE'],
+    credentials: true
   })
 );
 
 // app.use(cors());
-
 
 const userSchema = new mongoose.Schema({
   email: String,
@@ -174,6 +172,26 @@ app.get('/api/myForms', verifyToken, async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching form data' });
+  }
+});
+
+app.delete('/api/deleteFormData/:formId', verifyToken, async (req, res) => {
+  try {
+    const userId = req.userData.user;
+    const formId = req.params.formId;
+
+    const form = await FormData.findOne({ userId, _id: formId });
+
+    if (!form) {
+      return res.status(404).json({ message: 'Form data not found' });
+    }
+
+    await FormData.findByIdAndDelete(formId);
+
+    res.status(200).json({ message: 'Form data deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error deleting form data' });
   }
 });
 

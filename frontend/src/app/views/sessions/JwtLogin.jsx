@@ -22,8 +22,6 @@ const ContentBox = styled(Box)(() => ({
 const JWTRoot = styled(JustifyBox)(() => ({
   background: '#1A2038',
   height: 948,
-
-  // minHeight: '100% !important',
   '& .card': {
     maxWidth: 800,
     minHeight: 400,
@@ -36,12 +34,11 @@ const JWTRoot = styled(JustifyBox)(() => ({
 
 // inital login credentials
 const initialValues = {
-  email: 'workdummy03@gmail.com',
+  email: 'kazz@gmail.com',
   password: '123456789',
   remember: true
 };
 
-// form field validation schema
 const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'Password must be 6 character length')

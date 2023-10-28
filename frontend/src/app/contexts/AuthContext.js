@@ -3,8 +3,6 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { InjLoading } from 'app/components';
 
-// axios.defaults.withCredentials = true;
-
 const initialState = {
   user: null,
   isInitialised: false,
@@ -77,24 +75,22 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/login', { email, password },  { withCredentials: true });
+      const response = await axios.post('http://localhost:3001/api/login', { email, password });
       const { user, token } = response.data;
-      
 
       dispatch({ type: 'LOGIN', payload: { user, accessToken: token } });
     } catch (error) {
-      console.log('-------');
       console.error('Login failed:', error);
     }
   };
 
   const register = async (email, username, password) => {
     try {
-      const response = await axios.post('https://injury-tracker-backend-blond.vercel.app/api/register', {
+      const response = await axios.post('http://localhost:3001/api/register', {
         email,
         username,
         password
-      },  { withCredentials: true });
+      });
       const { user, token } = response.data;
 
       dispatch({ type: 'REGISTER', payload: { user, accessToken: token } });
@@ -105,7 +101,7 @@ export const AuthProvider = ({ children }) => {
 
   const getForms = async () => {
     try {
-      const response = await axios.get('https://injury-tracker-backend-blond.vercel.app/api/myForms', {
+      const response = await axios.get('http://localhost:3001/api/myForms', {
         withCredentials: true
       });
       const forms = response.data;

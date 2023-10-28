@@ -9,7 +9,7 @@ const formatDateTime = (dateTimeString) => {
 };
 
 const AppProgress = () => {
-  const { forms, getForms } = useContext(AuthContext);
+  const { forms, getForms, deleteForm } = useContext(AuthContext);
   const [formsArray, setFormsArray] = useState([]);
 
   useEffect(() => {
